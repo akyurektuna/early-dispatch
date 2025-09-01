@@ -1,0 +1,119 @@
+.examine-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.examine-container {
+  background: #2a1f1d;
+  border: 3px solid #8B4513;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: default;
+  position: relative;
+}
+
+.examine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: #e0d0c0;
+}
+
+.examine-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close-button {
+  background: #8B4513;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: #a52a2a;
+}
+
+.examine-photo-wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+  max-height: 60vh;
+}
+
+.examine-photo {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border: 2px solid #8B4513;
+  border-radius: 5px;
+}
+
+.clue-hitbox {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.3);
+  cursor: pointer;
+  border: 2px dashed yellow;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.clue-hitbox:hover {
+  background-color: rgba(255, 255, 0, 0.4);
+  transform: scale(1.2);
+}
+
+.clue-hitbox.found {
+  background-color: rgba(0, 255, 0, 0.2);
+  border: 2px solid green;
+  cursor: default;
+}
+
+.examine-clues {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(139, 69, 19, 0.2);
+  border-radius: 5px;
+  color: #e0d0c0;
+}
+
+.examine-clues h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.clue-status {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.clue-status.found {
+  color: #90ee90;
+}
+
+.clue-status.missing {
+  color: #aaa;
+  font-style: italic;
+}

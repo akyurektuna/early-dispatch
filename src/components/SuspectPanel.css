@@ -1,0 +1,70 @@
+.suspect-panel {
+  height: 100%;
+  padding: 1rem;
+}
+
+.suspect-panel h2 {
+  color: #e0d0c0;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.suspects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.suspect-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid #8B4513;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.suspect-card:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: #e0d0c0;
+  transform: translateX(-5px);
+}
+
+.suspect-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #8B4513, #a52a2a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.suspect-info {
+  flex: 1;
+}
+
+.suspect-info h3 {
+  margin: 0 0 0.25rem 0;
+  color: #e0d0c0;
+  font-size: 1rem;
+}
+
+.suspect-title {
+  margin: 0 0 0.25rem 0;
+  color: #aaa;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.suspect-status {
+  margin: 0;
+  color: #888;
+  font-size: 0.7rem;
+}
