@@ -1,0 +1,272 @@
+.dialogue-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.dialogue-container {
+  background: #2a2a2a;
+  border: 2px solid #606060;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  cursor: default;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #d8d8d8;
+}
+
+.dialogue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: #1a1a1a;
+  border-bottom: 1px solid #404040;
+  flex-shrink: 0;
+}
+
+.dialogue-header h2 {
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  color: #e8e8e8;
+}
+
+.suspect-dialogue-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #9e9e9e;
+  margin-right: 1rem;
+}
+
+.suspect-dialogue-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.close-dialogue-btn {
+  background: #606060;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-dialogue-btn:hover {
+  background: #808080;
+}
+
+.dialogue-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.dialogue-history {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 400px;
+  background: rgba(30, 30, 30, 0.5);
+  
+  scrollbar-width: thin;
+  scrollbar-color: #606060 #2a2a2a;
+}
+
+.dialogue-history::-webkit-scrollbar {
+  width: 8px;
+  
+}
+
+.dialogue-history::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.dialogue-history::-webkit-scrollbar-thumb {
+  background: #606060;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+.dialogue-history::-webkit-scrollbar-thumb:hover {
+  background: #808080;
+}
+
+.dialogue-history::-webkit-scrollbar-thumb:active {
+  background: #9e9e9e;
+}
+
+.dialogue-history {
+  scroll-behavior: smooth;
+}
+
+.dialogue-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dialogue-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dialogue-container::-webkit-scrollbar-thumb {
+  background: #606060;
+  border-radius: 4px;
+}
+
+.dialogue-bubble {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.dialogue-bubble.player {
+  align-self: flex-end;
+}
+
+.dialogue-bubble.suspect {
+  align-self: flex-start;
+}
+
+.bubble-content {
+  padding: 1rem;
+  border-radius: 18px;
+  position: relative;
+}
+
+.dialogue-bubble.player .bubble-content {
+  background: #4a76a8;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.dialogue-bubble.suspect .bubble-content {
+  background: #3a3a3a;
+  color: #d8d8d8;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #606060;
+}
+
+.bubble-content p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.bubble-time {
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 0.25rem;
+  padding: 0 0.5rem;
+}
+
+.dialogue-options {
+  padding: 1.5rem;
+  background: #1a1a1a;
+  border-top: 1px solid #404040;
+  flex-shrink: 0;
+}
+
+.dialogue-options h4 {
+  margin: 0 0 1rem 0;
+  color: #9e9e9e;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dialogue-option {
+  background: #3a3a3a;
+  border: 1px solid #606060;
+  color: #d8d8d8;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.dialogue-option:hover {
+  background: #4a4a4a;
+  border-color: #9e9e9e;
+  transform: translateX(5px);
+}
+
+.dialogue-option:active {
+  transform: translateX(5px) scale(0.98);
+}
+
+.dialogue-option.used {
+  opacity: 0.6;
+  background: #2a2a2a;
+  border-color: #404040;
+  color: #888;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.dialogue-option.used:hover {
+  background: #2a2a2a;
+  border-color: #404040;
+  transform: none !important;
+}
+
+.dialogue-option:disabled {
+  cursor: not-allowed;
+}
+
+.option-status {
+  color: #90ee90;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.dialogue-options h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialogue-options h4::after {
+  content: "New questions available";
+  font-size: 0.7rem;
+  color: #9e9e9e;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.dialogue-options:has(.dialogue-option:not(.used)) h4::after {
+  content: "New questions available";
+  color: #90ee90;
+}
+
+.dialogue-options:not(:has(.dialogue-option:not(.used))) h4::after {
+  content: "No new questions";
+  color: #ff6b6b;
+}

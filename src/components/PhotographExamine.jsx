@@ -20,7 +20,6 @@ function PhotographExamine({ photo, clues, foundClues, onClueFound, onClose }) {
           <button className="close-button" onClick={onClose}>✕</button>
         </div>
 
-        {/* the main photograph */}
         <div className="examine-photo-wrapper">
           <img 
             src={photo?.fullImage} 

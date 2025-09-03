@@ -5,11 +5,17 @@ import ClueJournal from './components/ClueJournal'
 import SuspectPanel from './components/SuspectPanel'
 import PhotographList from './components/PhotographList'
 import PhotographExamine from './components/PhotographExamine'
+import SuspectDialogue from './components/SuspectDialogue'
 
+import ScarlettAvatar from './assets/avatar1.png';
+import BusinessmanAvatar from './assets/avatar2.png';
+import JesterAvatar from './assets/avatar3.png';
+import StagemanAvatar from './assets/avatar4.png';
 
 function DeskScene({ foundClues, addClue }) {
-  const [selectedSuspect, setSelectedSuspect] = useState(null);
   const [examiningPhoto, setExaminingPhoto] = useState(null);
+  const [talkingToSuspect, setTalkingToSuspect] = useState(null);
+  const [conversationHistories, setConversationHistories] = useState({});
 
   // sample data
   const photographs = [
@@ -26,9 +32,16 @@ function DeskScene({ foundClues, addClue }) {
   ];
 
   const suspects = [
-    { id: 1, name: 'Vincent Cross', title: 'The Bartender', status: 'Alibi: Working', emoji: '🍸' },
-    { id: 2, name: 'Eleanor Vance', title: 'The Socialite', status: 'Motive: Known rival', emoji: '💎' },
-    { id: 3, name: 'Arthur Finch', title: 'The Businessman', status: 'Opportunity: Present', emoji: '💼' },
+    { id: 1, name: 'Vincent Cross', title: 'The Bartender', status: 'Alibi: Working', emoji: '🍸', avatar: JesterAvatar },
+    { id: 2, 
+      name: 'Eleanor Vance', 
+      title: 'The Socialite', 
+      status: 'Motive: Known rival', 
+      avatar: ScarlettAvatar, 
+      description: `Scarlett Deluxe owns the Rabbit Hole and everyone in it. She moves through the club like royalty, leaving a trail of vanilla perfume and broken hearts in her wake. Her smile doesn't reach her eyes.`
+    },
+    { id: 3, name: 'Arthur Finch', title: 'The Businessman', status: 'Opportunity: Present', emoji: '💼', avatar: BusinessmanAvatar },
+    { id: 4, name: 'Arthur Finch', title: 'The Stageman', status: 'Opportunity: Present', emoji: '💼', avatar: StagemanAvatar },
   ];
 
   const allClues = [
@@ -48,6 +61,34 @@ function DeskScene({ foundClues, addClue }) {
     addClue(clueId);
   };
 
+   const handleSuspectSelect = (suspect) => {
+    setTalkingToSuspect(suspect);
+
+    if (!conversationHistories[suspect.id]) {
+      setConversationHistories(prev => ({
+        ...prev,
+        [suspect.id]: [
+          {
+            speaker: 'suspect',
+            text: suspect.description || `You're speaking with ${suspect.name}. ${suspect.title}.`,
+            timestamp: new Date()
+          }
+        ]
+      }));
+    }
+  };
+
+  const handleCloseDialogue = () => {
+    setTalkingToSuspect(null);
+  };
+
+  const updateConversationHistory = (suspectId, newEntries) => {
+    setConversationHistories(prev => ({
+      ...prev,
+      [suspectId]: [...(prev[suspectId] || []), ...newEntries]
+    }));
+  };
+
   return (
     <div className="desk-container">
       <div className="panel left-panel">
@@ -64,7 +105,8 @@ function DeskScene({ foundClues, addClue }) {
       <div className="panel right-panel">
         <SuspectPanel 
           suspects={suspects} 
-          onSuspectSelect={setSelectedSuspect} 
+          conversationHistories={conversationHistories}
+          onSuspectSelect={setTalkingToSuspect} 
         />
       </div>
             {examiningPhoto && (
@@ -74,6 +116,16 @@ function DeskScene({ foundClues, addClue }) {
           foundClues={foundClues}
           onClueFound={handleClueFound}
           onClose={handleCloseExamine}
+        />
+      )}
+
+      {talkingToSuspect && (
+        <SuspectDialogue
+          suspect={talkingToSuspect}
+          foundClues={foundClues}
+          conversationHistory={conversationHistories[talkingToSuspect.id] || []} // NEW: Pass history
+          onUpdateConversation={updateConversationHistory} // NEW: Pass update function
+          onClose={handleCloseDialogue}
         />
       )}
     </div>
