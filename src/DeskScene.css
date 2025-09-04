@@ -42,3 +42,96 @@ body {
   background-blend-mode: overlay;
 }
 
+.right-panel-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.suspects-section {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+.suspects-section h3 {
+  color: #e8e8e8;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+.accusation-button-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.accuse-button {
+  width: 100%;
+  background: linear-gradient(135deg, #8b0000, #600);
+  border: 1px solid #a00;
+  color: white;
+  padding: 0.8rem;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.accuse-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #a00, #700);
+  border-color: #c00;
+  transform: translateY(-1px);
+}
+
+.accuse-button:disabled {
+  background: #333;
+  border-color: #555;
+  color: #777;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.accusation-section {
+  flex-shrink: 0;
+  background: rgba(40, 0, 0, 0.3);
+  border: 1px solid #600;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.accusation-hint {
+  font-size: 0.75rem;
+  color: #999;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+.suspects-grid {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.suspects-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suspects-grid::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.suspects-grid::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+.suspects-grid::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}

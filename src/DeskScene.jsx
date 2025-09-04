@@ -7,12 +7,9 @@ import PhotographList from './components/PhotographList'
 import PhotographExamine from './components/PhotographExamine'
 import SuspectDialogue from './components/SuspectDialogue'
 
-import ScarlettAvatar from './assets/avatar1.png';
-import BusinessmanAvatar from './assets/avatar2.png';
-import JesterAvatar from './assets/avatar3.png';
-import StagemanAvatar from './assets/avatar4.png';
 
-function DeskScene({ foundClues, addClue }) {
+
+function DeskScene({ foundClues, addClue, onAccuse,suspects }) {
   const [examiningPhoto, setExaminingPhoto] = useState(null);
   const [talkingToSuspect, setTalkingToSuspect] = useState(null);
   const [conversationHistories, setConversationHistories] = useState({});
@@ -29,19 +26,6 @@ function DeskScene({ foundClues, addClue }) {
         thumbnail: '/src/assets/Untitled_Artwork2.png',
         fullImage: '/src/assets/Untitled_Artwork2.png' 
        },
-  ];
-
-  const suspects = [
-    { id: 1, name: 'Vincent Cross', title: 'The Bartender', status: 'Alibi: Working', emoji: '🍸', avatar: JesterAvatar },
-    { id: 2, 
-      name: 'Eleanor Vance', 
-      title: 'The Socialite', 
-      status: 'Motive: Known rival', 
-      avatar: ScarlettAvatar, 
-      description: `Scarlett Deluxe owns the Rabbit Hole and everyone in it. She moves through the club like royalty, leaving a trail of vanilla perfume and broken hearts in her wake. Her smile doesn't reach her eyes.`
-    },
-    { id: 3, name: 'Arthur Finch', title: 'The Businessman', status: 'Opportunity: Present', emoji: '💼', avatar: BusinessmanAvatar },
-    { id: 4, name: 'Arthur Finch', title: 'The Stageman', status: 'Opportunity: Present', emoji: '💼', avatar: StagemanAvatar },
   ];
 
   const allClues = [
@@ -90,6 +74,7 @@ function DeskScene({ foundClues, addClue }) {
   };
 
   return (
+    
     <div className="desk-container">
       <div className="panel left-panel">
         <ClueJournal foundClues={foundClues} allClues={allClues} />
@@ -102,12 +87,30 @@ function DeskScene({ foundClues, addClue }) {
         />
       </div>
 
-      <div className="panel right-panel">
-        <SuspectPanel 
-          suspects={suspects} 
-          conversationHistories={conversationHistories}
-          onSuspectSelect={setTalkingToSuspect} 
-        />
+<div className="panel right-panel">
+  <div className="right-panel-content">
+    <div className="suspects-section">
+      <SuspectPanel 
+        suspects={suspects} 
+        onSuspectSelect={setTalkingToSuspect}
+      />
+    </div>
+    <div className="accusation-section">
+      <button 
+        className="accuse-button"
+        onClick={() => onAccuse()}
+        disabled={foundClues.length < 3}
+      >
+        MAKE ACCUSATION
+      </button>
+      <p className="accusation-hint">
+        {foundClues.length < 3 
+          ? `Gather ${3 - foundClues.length} more clues to accuse` 
+          : "Ready to confront the killer"
+        }
+      </p>
+    </div>
+     </div>
       </div>
             {examiningPhoto && (
         <PhotographExamine
@@ -128,7 +131,10 @@ function DeskScene({ foundClues, addClue }) {
           onClose={handleCloseDialogue}
         />
       )}
+
     </div>
+
+    
   );
 }
 

@@ -1,6 +1,7 @@
 import './SuspectPanel.css';
 
 function SuspectPanel({ suspects, onSuspectSelect, conversationHistories }) {
+  const safeConversationHistories = conversationHistories || {};
   return (
     <div className="suspect-panel">
       <h2>Persons of Interest</h2>
@@ -17,11 +18,11 @@ function SuspectPanel({ suspects, onSuspectSelect, conversationHistories }) {
               alt={suspect.name}
               className="suspect-avatar"
             />
-            {conversationHistories[suspect.id] && conversationHistories[suspect.id].length > 1 && (
-    <div className="conversation-indicator" title="Ongoing conversation">
-      ●
-    </div>
-  )}
+            {safeConversationHistories[suspect.id] && safeConversationHistories[suspect.id].length > 1 && (
+              <div className="conversation-indicator" title="Ongoing conversation">
+                ●
+              </div>
+            )}
             <div className="suspect-info">
               <h3>{suspect.name}</h3>
               <p className="suspect-title">{suspect.title}</p>
