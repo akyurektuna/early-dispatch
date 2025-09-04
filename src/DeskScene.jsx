@@ -26,8 +26,8 @@ function DeskScene({ foundClues, addClue }) {
 
     { id: 'closeup',
        title: 'Close Evidence',
-        thumbnail: '/src/assets/Untitled_Artwork.png',
-        fullImage: '/src/assets/Untitled_Artwork.png' 
+        thumbnail: '/src/assets/Untitled_Artwork2.png',
+        fullImage: '/src/assets/Untitled_Artwork2.png' 
        },
   ];
 
@@ -123,8 +123,8 @@ function DeskScene({ foundClues, addClue }) {
         <SuspectDialogue
           suspect={talkingToSuspect}
           foundClues={foundClues}
-          conversationHistory={conversationHistories[talkingToSuspect.id] || []} // NEW: Pass history
-          onUpdateConversation={updateConversationHistory} // NEW: Pass update function
+          conversationHistory={conversationHistories[talkingToSuspect.id] || []}
+          onUpdateConversation={updateConversationHistory} 
           onClose={handleCloseDialogue}
         />
       )}

@@ -10,29 +10,30 @@
   align-items: center;
   z-index: 1000;
   cursor: pointer;
+  font-family: 'Courier New', monospace;
 }
 
 .dialogue-container {
-  background: #2a2a2a;
-  border: 2px solid #606060;
-  border-radius: 10px;
+  background: #0a0a0a;  
+  border: 1px solid #3a3a3a;
   width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
+  max-width: 600px;
+  max-height: 70vh;
   cursor: default;
   position: relative;
   display: flex;
   flex-direction: column;
   color: #d8d8d8;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .dialogue-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 1rem;
   background: #1a1a1a;
-  border-bottom: 1px solid #404040;
+  border-bottom: 1px solid #333;
   flex-shrink: 0;
 }
 
@@ -41,15 +42,19 @@
   flex: 1;
   text-align: center;
   color: #e8e8e8;
+  font-size: 1.1rem;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .suspect-dialogue-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 1px;
   overflow: hidden;
-  border: 2px solid #9e9e9e;
-  margin-right: 1rem;
+  border: 1px solid #555;
+  margin-right: 0.8rem;
 }
 
 .suspect-dialogue-avatar img {
@@ -59,20 +64,22 @@
 }
 
 .close-dialogue-btn {
-  background: #606060;
-  border: none;
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #555;
+  color: #999;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
 .close-dialogue-btn:hover {
-  background: #808080;
+  background: #e8e8e8;
+  border-color: #999;
 }
 
 .dialogue-content {
@@ -88,32 +95,26 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-height: 400px;
-  background: rgba(30, 30, 30, 0.5);
-  
-  scrollbar-width: thin;
-  scrollbar-color: #606060 #2a2a2a;
+  gap: 0.8rem;
+  max-height: 300px;
+  background: #0f0f0f;
 }
 
 .dialogue-history::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
   
 }
 
 .dialogue-history::-webkit-scrollbar-track {
-  background: #2a2a2a;
-  border-radius: 4px;
+  background: #1a1a1a;
 }
 
 .dialogue-history::-webkit-scrollbar-thumb {
-  background: #606060;
-  border-radius: 4px;
-  border: 1px solid #808080;
+  background: #333;
 }
 
 .dialogue-history::-webkit-scrollbar-thumb:hover {
-  background: #808080;
+  background: #555;
 }
 
 .dialogue-history::-webkit-scrollbar-thumb:active {
@@ -140,99 +141,115 @@
 .dialogue-bubble {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  max-width: 100%;
 }
 
 .dialogue-bubble.player {
   align-self: flex-end;
+  margin-left: right;
 }
 
 .dialogue-bubble.suspect {
   align-self: flex-start;
+  text-align: left;
 }
 
 .bubble-content {
-  padding: 1rem;
-  border-radius: 18px;
-  position: relative;
+  padding: 0;
 }
 
-.dialogue-bubble.player .bubble-content {
-  background: #4a76a8;
-  color: white;
-  border-bottom-right-radius: 4px;
-}
-
-.dialogue-bubble.suspect .bubble-content {
-  background: #3a3a3a;
-  color: #d8d8d8;
-  border-bottom-left-radius: 4px;
-  border: 1px solid #606060;
-}
-
-.bubble-content p {
+.dialogue-bubble.player .bubble-content p {
+  color: #e8e8e8;
   margin: 0;
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
   line-height: 1.4;
 }
 
+.dialogue-bubble.suspect .bubble-content p {
+  color: #b8b8b8;
+  margin: 0;
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
 .bubble-time {
-  font-size: 0.7rem;
-  color: #888;
-  margin-top: 0.25rem;
-  padding: 0 0.5rem;
+  display: none;
 }
 
 .dialogue-options {
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   background: #1a1a1a;
-  border-top: 1px solid #404040;
+  border-top: 1px solid #333;
   flex-shrink: 0;
 }
 
 .dialogue-options h4 {
-  margin: 0 0 1rem 0;
-  color: #9e9e9e;
-  font-size: 0.9rem;
+  margin: 0 0 0.8rem 0;
+  color: #999;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: normal;
 }
 
 .dialogue-option {
-  background: #3a3a3a;
-  border: 1px solid #606060;
-  color: #d8d8d8;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
+  background: transparent;
+  border: none;
+  border-left: 2px solid #555;
+  color: #b8b8b8;
+  padding: 0.6rem 0.8rem;
   cursor: pointer;
   text-align: left;
   transition: all 0.2s ease;
   font-family: inherit;
   width: 100%;
   margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.dialogue-option:focus {
+  outline: 1px solid #8b5a2b;
+  outline-offset: -1px;
+}
+
+.dialogue-option::before {
+  content: '»';
+  position: absolute;
+  left: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dialogue-option:hover::before {
+  opacity: 1;
 }
 
 .dialogue-option:hover {
-  background: #4a4a4a;
-  border-color: #9e9e9e;
-  transform: translateX(5px);
+  color: #e8e8e8;
+  border-left-color: #8b5a2b;
+  background: rgba(139, 90, 43, 0.1);
+  transform: translateX(2px);
 }
 
 .dialogue-option:active {
-  transform: translateX(5px) scale(0.98);
+  transform: translateX(2px);
 }
 
 .dialogue-option.used {
-  opacity: 0.6;
-  background: #2a2a2a;
-  border-color: #404040;
-  color: #888;
+  opacity: 0.4;
+  color: #666;
   cursor: not-allowed;
   transform: none !important;
 }
 
 .dialogue-option.used:hover {
-  background: #2a2a2a;
-  border-color: #404040;
+  background: transparent;
+  border-left-color: #555;
+  color: #666;
   transform: none !important;
 }
 
@@ -241,9 +258,7 @@
 }
 
 .option-status {
-  color: #90ee90;
-  font-weight: bold;
-  margin-left: 0.5rem;
+  display: none;
 }
 
 .dialogue-options h4 {
@@ -269,4 +284,22 @@
 .dialogue-options:not(:has(.dialogue-option:not(.used))) h4::after {
   content: "No new questions";
   color: #ff6b6b;
+}
+
+.dialogue-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 20px;
+  height: 2px;
+  background: #5a3c1a;
+  opacity: 0.5;
+}
+
+.dialogue-bubble.player::after {
+  right: 10px;
+}
+
+.dialogue-bubble.suspect::after {
+  left: 10px;
 }
