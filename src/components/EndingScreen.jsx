@@ -18,7 +18,6 @@ function EndingScreen({ accusedSuspect, isCorrect, onRestart, caseSolution}){
         <div className="ending-content">
           {isCorrect ? (
             <div className="correct-ending">
-              <div className="ending-icon">✓</div>
               <p>You've identified the real killer: <strong>{accusedSuspect.name}</strong></p>
               <div className="ending-explanation">
                 <h3>The Truth:</h3>
@@ -27,7 +26,6 @@ function EndingScreen({ accusedSuspect, isCorrect, onRestart, caseSolution}){
             </div>
           ) : (
             <div className="wrong-ending">
-              <div className="ending-icon">✗</div>
               <p>Your accusation against <strong>{accusedSuspect.name}</strong> didn't stick.</p>
               <p>The evidence wasn't strong enough to convince the commissioner.</p>
                 

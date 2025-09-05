@@ -56,6 +56,15 @@
   filter: grayscale(30%) contrast(110%) brightness(90%);
 }
 
+.suspect-dialogue-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 1px;
+  overflow: hidden;
+  border: 1px solid #555;
+  flex-shrink: 0;
+}
+
 .suspect-info {
   flex: 1;
   min-width: 0;
@@ -76,6 +85,8 @@
   color: #a8a8a8; 
   font-size: 0.8rem;
   font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .ssuspect-status {
@@ -83,6 +94,24 @@
   color: #888888; 
   font-size: 0.7rem;
   font-family: 'Courier New', monospace;
+}
+
+.suspect-title {
+  color: #8b5a2b;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.suspect-description {
+  color: #a8a8a8;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-style: italic;
+  border-left: 1px solid #5a3c1a;
+  padding-left: 0.5rem;
 }
 
 .conversation-indicator {
@@ -99,4 +128,22 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #2a2a2a;
+}
+
+.suspect-info-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
+
+.suspect-details {
+  flex: 1;
+}
+
+.suspect-details h2 {
+  margin: 0 0 0.2rem 0;
+  color: #e8e8e8;
+  font-size: 1.3rem;
+  font-weight: normal;
 }

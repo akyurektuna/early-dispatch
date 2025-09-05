@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   z-index: 3000;
+  overflow: hidden;
 }
 
 .accusation-container {
@@ -19,6 +20,7 @@
   padding: 2rem;
   color: #d8d8d8;
   text-align: center;
+  overflow: hidden;
 }
 
 .accusation-header h2 {
@@ -35,34 +37,45 @@
   font-style: italic;
 }
 
-.suspects-grid {
+.accusation-container .suspects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 2rem 0;
 }
 
-.accusation-suspect-card {
+.accusation-container .accusation-suspect-card {
   background: rgba(50, 0, 0, 0.3);
   border: 1px solid #600;
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  overflow: hidden;
 }
 
-.accusation-suspect-card:hover {
+.accusation-container .accusation-suspect-card:hover {
   background: rgba(100, 0, 0, 0.5);
   border-color: #f00;
-  transform: scale(1.05);
+  box-shadow: 
+  0 0 20px rgba(255, 0, 0, 0.3),
+  0 0 40px rgba(255, 0, 0, 0.1);
 }
 
-.accusation-avatar {
+.accusation-container .accusation-avatar {
   width: 80px;
   height: 80px;
   border-radius: 2px;
-  border: 2px solid #800;
   margin: 0 auto 1rem;
+}
+
+.accusation-suspect-card:hover .accusation-avatar {
+  transform: scale(1.05);
 }
 
 .accusation-suspect-info h3 {
@@ -84,4 +97,30 @@
 .cancel-accusation:hover {
   border-color: #999;
   color: #e8e8e8;
+}
+
+@media (max-width: 600px) {
+  .accusation-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .accusation-suspects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .accusation-suspect-card {
+    min-height: 160px;
+    padding: 1rem;
+  }
+  
+  .accusation-avatar {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .accusation-header h2 {
+    font-size: 1.5rem;
+  }
 }

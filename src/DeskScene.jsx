@@ -29,8 +29,13 @@ function DeskScene({ foundClues, addClue, onAccuse,suspects }) {
   ];
 
   const allClues = [
-    { id: 'bloody_knife', title: 'Bloody Knife', description: 'A knife with traces of blood.', photoId: 'alleyway' },
-    { id: 'torn_note', title: 'Torn Note', description: 'A piece of paper with writing.', photoId: 'alleyway' },
+    { id: 'bloody_knife', title: 'Bloody Knife', description: 'A stage prop knife with a jeweled handle. Traces of blood.', photoId: 'alleyway', position: { top: '65%', left: '34%', width: '5%', height: '8%' }  },
+    { id: 'torn_ticket', title: 'VIP Ticket', description: 'White ticket with red lipstick stain, caught in drain grate.', photoId: 'closeup', position: { top: '5%', left: '50%', width: '5%', height: '8%' } },
+    { id: 'stagehand_glove', title: 'Stagehand Glove', description: 'A black fingerless work glove.', photoId: 'alleyway' , position: { top: '40%', left: '6%', width: '5%', height: '8%' }},
+    { id: 'ace_of_spades', title: 'Ace of Spades', description: 'Ace of Spades clutched in fingers.', photoId: 'closeup', position: { top: '35%', left: '48%', width: '5%', height: '8%' } },
+    { id: 'muddy_footprint', title: 'Footprint', description: 'Sharp-heeled print in wet pavement.', photoId: 'closeup', position: { top: '2%', left: '70%', width: '5%', height: '8%' } },
+    { id: 'vanilla_scent', title: 'Perfume', description: 'Scarletts signature perfume.', photoId: 'closeup', relatedSuspect: 'scarlett', position: { top: '38%', left: '42%', width: '5%', height: '8%' } },
+    { id: 'fibers', title: 'Fibers', description: 'Fibers under nails', photoId: 'closeup', position: { top: '45%', left: '50%', width: '5%', height: '8%' } },
   ];
 
   const handlePhotoSelect = (photo) => {

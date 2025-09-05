@@ -1,6 +1,9 @@
 import './AccusationScreen.css';
+import { useState } from 'react';
 
 function AccusationScreen({ suspects, onAccuse, onCancel}){
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  
     return(
         <div className="accusation-overlay">
       <div className="accusation-container">

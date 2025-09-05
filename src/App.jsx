@@ -17,16 +17,35 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
 
   const suspects = [
-    { id: 1, name: 'Vincent Cross', title: 'The Bartender', status: 'Alibi: Working', emoji: '🍸', avatar: JesterAvatar },
+    { id: 1, 
+      name: 'Jester', 
+      title: 'The Rival Magician', 
+      status: 'Alibi: Working', 
+      avatar: JesterAvatar,
+      description: `Jester is all dramatic flair and bitter resentment. He sees magic as a competition he's losing, and Ace Santoro as the hack who stole his best tricks and his spotlight.`
+    },
     { id: 2, 
-      name: 'Eleanor Vance', 
+      name: 'Scarlett Deluxe', 
       title: 'The Socialite', 
       status: 'Motive: Known rival', 
       avatar: ScarlettAvatar, 
       description: `Scarlett Deluxe owns the Rabbit Hole and everyone in it. She moves through the club like royalty, leaving a trail of vanilla perfume and broken hearts in her wake. Her smile doesn't reach her eyes.`
     },
-    { id: 3, name: 'Arthur Finch', title: 'The Businessman', status: 'Opportunity: Present', emoji: '💼', avatar: BusinessmanAvatar },
-    { id: 4, name: 'Arthur Finch', title: 'The Stageman', status: 'Opportunity: Present', emoji: '💼', avatar: StagemanAvatar },
+    { id: 3,
+      name: 'Vincent Cross', 
+      title: 'The Businessman', 
+      status: 'Opportunity: Present', 
+      avatar: BusinessmanAvatar,
+      description: `Vincent 'Fast Eddie' Cross runs the high-stakes games in the back room. He's got quick hands and quicker eyes, always watching, always calculating. He smells of expensive whiskey and cheap cigars.`
+
+    },
+    { id: 4, 
+      name: 'Silas', 
+      title: 'The Stageman', 
+      status: 'Opportunity: Present', 
+      avatar: StagemanAvatar,
+      description: `Silas is more ghost than person - always there but never seen. He moves through the club with a quiet efficiency that makes him practically invisible. The perfect witness, if he bothered to look up from his work.`
+     },
   ];
 
   const caseSolution = "Silas was Ace's original partner, betrayed years ago. He caused the blackout and framed Jester using his prop knife, seeking revenge for his stolen career.";

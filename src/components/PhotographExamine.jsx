@@ -34,12 +34,7 @@ function PhotographExamine({ photo, clues, foundClues, onClueFound, onClose }) {
               <div
                 key={clue.id}
                 className={`clue-hitbox ${isFound ? 'found' : ''}`}
-                style={{
-                  top: '30%',    // YAP: adjust these positions when placing the clues
-                  left: '60%',   // this is for debugging purposes
-                  width: '5%',
-                  height: '8%',
-                }}
+                style={ clue.position}
                 onClick={() => handleClueClick(clue.id)}
                 title={isFound ? clue.title : 'Click to examine'}
               />
