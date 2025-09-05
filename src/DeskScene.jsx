@@ -7,7 +7,8 @@ import PhotographList from './components/PhotographList'
 import PhotographExamine from './components/PhotographExamine'
 import SuspectDialogue from './components/SuspectDialogue'
 
-
+import ArtAlleyway from './assets/Untitled_Artwork.png';
+import ArtCloseup from './assets/Untitled_Artwork2.png';
 
 function DeskScene({ foundClues, addClue, onAccuse,suspects }) {
   const [examiningPhoto, setExaminingPhoto] = useState(null);
@@ -18,13 +19,14 @@ function DeskScene({ foundClues, addClue, onAccuse,suspects }) {
   const photographs = [
     { id: 'alleyway',
       title: 'Crime Scene',
-      thumbnail: '/src/assets/Untitled_Artwork.png',
-      fullImage: '/src/assets/Untitled_Artwork.png' },
+      thumbnail: ArtAlleyway,
+      fullImage: ArtAlleyway },
 
     { id: 'closeup',
        title: 'Close Evidence',
-        thumbnail: '/src/assets/Untitled_Artwork2.png',
-        fullImage: '/src/assets/Untitled_Artwork2.png' 
+       test: 'updated',
+        thumbnail: ArtCloseup,
+        fullImage: ArtCloseup 
        },
   ];
 
